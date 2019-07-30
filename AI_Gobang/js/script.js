@@ -7,23 +7,23 @@ var wins = [];
 var myWin = [];
 var computerWin = [];
 
-for(var i=0;i<15;i++){
+for(var i=0;i<30;i++){
 	chessBoard[i] = [];
-	for(var j=0;j<15;j++){
+	for(var j=0;j<30;j++){
 		chessBoard[i][j] = 0;
 	}
 }
-for(var i=0;i<15;i++){
+for(var i=0;i<30;i++){
 	wins[i] = [];
-	for(var j=0;j<15;j++){
+	for(var j=0;j<30;j++){
 		wins[i][j] = [];
 	}
 }
 
 var count = 0;
 //所有横线
-for(var i=0;i<15;i++){
-	for(var j=0;j<11;j++){
+for(var i=0;i<30;i++){
+	for(var j=0;j<26;j++){
 		//wins[0][0][0] = true
 		//wins[0][1][0] = true
 		//wins[0][2][0] = true
@@ -43,8 +43,8 @@ for(var i=0;i<15;i++){
 	}
 }
 //所有竖线
-for(var i=0;i<15;i++){
-	for(var j=0;j<11;j++){
+for(var i=0;i<30;i++){
+	for(var j=0;j<26;j++){
 		for(var k=0;k<5;k++){
 			wins[j+k][i][count] = true;
 		}
@@ -53,8 +53,8 @@ for(var i=0;i<15;i++){
 }
 
 //所有斜线
-for(var i=0;i<11;i++){
-	for(var j=0;j<11;j++){
+for(var i=0;i<26;i++){
+	for(var j=0;j<26;j++){
 		for(var k=0;k<5;k++){
 			wins[i+k][j+k][count] = true;
 		}
@@ -62,8 +62,8 @@ for(var i=0;i<11;i++){
 	}
 }
 //所有反斜线
-for(var i=0;i<11;i++){
-	for(var j=14;j>3;j--){
+for(var i=0;i<26;i++){
+	for(var j=29;j>3;j--){
 		for(var k=0;k<5;k++){
 			wins[i+k][j-k][count] = true;
 		}
@@ -87,17 +87,17 @@ context.strokeStyle = "#BFBFBF";
 var logo = new Image();
 logo.src = "images/logo.png";
 logo.onload = function(){
-	context.drawImage(logo,0,0,450,450);
+	context.drawImage(logo,0,0,900,900);
 	drawChessBoard();	
 }
 
 var drawChessBoard = function(){
-for(var i=0;i<15;i++){
+for(var i=0;i<30;i++){
 	context.moveTo(15+i*30,15);
-	context.lineTo(15+i*30,435);
+	context.lineTo(15+i*30,885);
 	context.stroke();
 	context.moveTo(15,15+i*30);
-	context.lineTo(435,15+i*30);
+	context.lineTo(885,15+i*30);
 	context.stroke();
 }
 }
@@ -117,7 +117,6 @@ var onStep = function(i,j,me){
 	context.fillStyle=gradient;
 	context.fill();
 }
-
 
 chess.onclick = function(e){
 	if(over){
@@ -157,16 +156,16 @@ var computerAI = function(){
 	var computerScore = [];
 	var max = 0;
 	var u = 0,v = 0; 
-	for(var i=0;i<15;i++){
+	for(var i=0;i<30;i++){
 		myScore[i] = [];
 		computerScore[i] = [];
-		for(var j=0;j<15;j++){
+		for(var j=0;j<30;j++){
 			myScore[i][j] = 0;
 			computerScore[i][j] = 0;
 		}
 	}
-	for(var i=0;i<15;i++){
-		for(var j=0;j<15;j++){
+	for(var i=0;i<30;i++){
+		for(var j=0;j<30;j++){
 			if(chessBoard[i][j] == 0){
 				for(var k=0;k<count;k++){
 					if(wins[i][j][k]){
