@@ -1,5 +1,10 @@
 # AI_Gobang
-基于JS的简单人机五子棋demo
+## 基于JS的简单人机五子棋demo
+**v2.0.0**
+
+扩展为30*30棋盘，更新背景图，共2912种赢法。
+![image](https://github.com/kdk007/AI_Gobang/blob/master/images/gobang2.png)
+
 
 **v1.0.0**
 
@@ -9,8 +14,6 @@
 
 
 
-**v2.0.0**
 
-扩展为30*15棋盘，更新背景图，共2912种赢法。
 
 
